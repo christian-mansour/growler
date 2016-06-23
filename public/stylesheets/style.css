@@ -6,3 +6,27 @@ body {
 a {
   color: #00B7FF;
 }
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 50px;
+}
+
+div {
+  text-align: center;
+}
+li {
+  list-style-type: none;
+  padding: 8px;
+}
+textarea {
+  display: inline;
+  margin: 10px 0;
+}
+
+input{
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+

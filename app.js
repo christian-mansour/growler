@@ -26,11 +26,17 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
-}))
+  cookie: { path: '/', httpOnly: true, secure: false, maxAge: null }
+}));
+
+app.use(function(req, res, next) {
+ req.session.feed = req.session.feed || [];
+ app.locals.feed = req.session.feed;
+ next();
+});
 
 app.use('/', routes);
-app.use('/users', users);
+// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

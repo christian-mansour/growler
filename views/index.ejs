@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Growler</title>
     <link rel='stylesheet' href='http://bootswatch.com/slate/bootstrap.min.css'/>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
     <div>
-      <form action="/growls" method="post">
-        <input type='text' name='inputGrowl' placeholder="growl here">
+      <h1>Growler</h1>
+      <p>Welome to Growler! Post a growl & checkout all of your past growls below!</p>
+      <form action="/" method="post">
+        <textarea name="name" cols="50" rows="7" maxlength="141" placeholder="growl here"></textarea>
         <input type='submit' value='Submit Growl'>
       </form>
     </div>
+    <ul>
+
+        <% feed.forEach(function(growl) {%>
+         <li> <%= growl.name %> </li>
+        <% }) %>
+
+    </ul>
   </body>
 </html>

@@ -1,8 +1,6 @@
-function Growls () {
-
-this.text = text;
-Growls.all.push(this);
-
+function Growls(object) {
+  this.name = object.name;
+  Growls.all.push(this);
 };
 
 

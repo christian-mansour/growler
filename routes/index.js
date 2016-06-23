@@ -5,24 +5,20 @@ var Growls = require('../models/growls')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Growler' });
-});
-
-router.get('/growls', function(req, res, next) {
-  res.render('growlsPage', { title: 'All Growls' });
+ res.render('index', { feed: req.session.feed });
 });
 
 
-router.post('/growls', function(req, res, next) {
-  var singleGrowl = req.body.inputGrowl;
-  // new Growls(session.singleGrowl);
 
 
-  console.log(singleGrowl);
-
-
-  res.redirect('/growls');
+router.post('/', function(req, res, next) {
+  var temp = req.body;
+  var session = req.session.feed
+  session.push(temp);
+  console.log(req.session.feed);
+  res.redirect('/');
 });
+
 
 
 
